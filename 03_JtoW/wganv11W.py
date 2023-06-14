@@ -18,8 +18,10 @@ INIT = initializers.HeNormal(seed=42)
 
 CLIP_CONSTANT = 0.01 #clippign parameter according to WGAN paper
 
+#WGAN architecture is based on the base architecture (please see description in the base file) with the following modifications
+#11 has 4 layers with channels 48-24-12-2
+#W uses Leaky ReLU in the generator and critic, RMSProp optimizer, batch normalization, and gradient clipping
 
-#wgan v W is a gan using Wasserstein loss, LeakyReLU, RMSProp, and with weight clipping and batch normalization
 #The Generator
 def make_generator_model(num_class=2):
     model = tf.keras.Sequential()

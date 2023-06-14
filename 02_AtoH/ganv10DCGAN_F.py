@@ -29,6 +29,9 @@ EPOCHS = 8000
 SAVE_NUM = 40
 INIT = initializers.HeNormal() 
 
+#DCGAN architecture is based on the base architecture (please see description in the base file) with the following modifications
+#F uses logits and learning rate decay
+
 LR = 1e-4
 MIN_LR = 0.000001 # Minimum value of learning rate
 DECAY_FACTOR=1.00004 # learning rate decay factor

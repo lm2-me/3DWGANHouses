@@ -16,8 +16,9 @@ SAVE_NUM = 40
 EPOCHS = 8000
 INIT = initializers.HeNormal(seed=42)
 
-
-#wgan v R is a gan using Wasserstein loss, LeakyReLU, RMSProp, and with gradient penalty (no normalization and no learning rate decay)
+#WGAN architecture is based on the base architecture (please see description in the base file) with the following modifications
+#11 has 4 layers with channels 48-24-12-2
+#R uses Leaky ReLU in the generator and critic, RMSProp optimizer, and gradient penalty
 
 #The Generator
 def make_generator_model(num_class=2):

@@ -20,8 +20,9 @@ LR = 1e-4
 
 CLIP_CONSTANT = 0.01 #clippign parameter according to WGAN paper
 
-#wgan v U is a gan using Wasserstein loss, LeakyReLU, with gradient clipping
-#training data uses 2 labels [1,0] and [0,1]
+#WGAN architecture is based on the base architecture (please see description in the base file) with the following modifications
+#11 has 4 layers with channels 48-24-12-2
+#T uses Leaky ReLU in the generator and critic, learning rate decay, batch normalization, and gradient clipping
 
 #The Generator
 def make_generator_model(num_class=2):

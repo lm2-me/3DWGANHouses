@@ -18,7 +18,9 @@ INIT = initializers.HeNormal(seed=42)
 
 LR = 1e-4
 
-#wgan v M is a gan using Wasserstein loss, logits, LeakyReLU, and learning rate decay, and with gradient penalty
+#WGAN architecture is based on the base architecture (please see description in the base file) with the following modifications
+#11 has 4 layers with channels 48-24-12-2
+#P uses Leaky ReLU in the generator and critic, learning rate decay, and gradient penalty
 
 #The Generator
 def make_generator_model(num_class=2):

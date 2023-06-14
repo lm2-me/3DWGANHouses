@@ -33,6 +33,9 @@ LR = 1e-4
 MIN_LR = 0.000001 # Minimum value of learning rate
 DECAY_FACTOR=1.00004 # learning rate decay factor
 
+#DCGAN architecture is based on the base architecture (please see description in the base file) with the following modifications
+#G uses logits, LeakyReLU in the generator and the critic, and uses learning rate decay
+
 #The Generator
 def make_generator_model(num_class=2):
     model = tf.keras.Sequential()

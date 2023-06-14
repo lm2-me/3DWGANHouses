@@ -29,6 +29,9 @@ EPOCHS = 8000
 SAVE_NUM = 40
 INIT = initializers.HeNormal() 
 
+#DCGAN architecture is based on the base architecture (please see description in the base file) with the following modifications
+#C uses logits
+
 #The Generator
 def make_generator_model(num_class=2):
     model = tf.keras.Sequential()

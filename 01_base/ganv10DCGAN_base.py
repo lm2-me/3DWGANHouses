@@ -29,6 +29,18 @@ EPOCHS = 8000
 SAVE_NUM = 40
 INIT = initializers.HeNormal() 
 
+#The base architecture for DCGAN is described as follows:
+'''This architecture is based on the precedent of 3D GAN architecture [Wu et al., 2016].
+LOSS FUNCTION: Min-Max GAN loss function
+GENERATOR: 4 fully convolution layers with a number of channels of {48, 24, 12, 2}, kernel sizes {4, 4, 4, 4}, and strides {2, 2, 2, 2};
+activation function ReLU, and Softmax at the end; input 200-dimensional vector, output is a [160, 160, 80] matrix with values in [0, 1];
+ADAM optimizer with Learning Rate=0.0025 and Beta=0.5
+
+DISCRIMINATOR: mirrored version of the generator
+input of a [160, 160, 80] matrix, outputs a real number in [0, 1]; 4 volumetric convolution layers, with a number of channels 
+of {12, 24, 48, 2, kernel sizes {4, 4, 4, 4}, and strides {2, 2, 2, 2}; activation function Leaky ReLU alpha = 0.2, and a
+Sigmoid layer at the end; ADAM optimizer with Learning Rate=0.00001 and Beta=0.5'''
+
 #The Generator
 def make_generator_model(num_class=2):
     model = tf.keras.Sequential()

@@ -18,8 +18,9 @@ INIT = initializers.HeNormal(seed=42)
 
 LR = 1e-4
 
-#wgan v J is a gan using Wasserstein loss, logits, LeakyReLU, and learning rate decay with batch normalization
-#training data uses 2 labels [1,0] and [0,1]
+#WGAN architecture is based on the base architecture (please see description in the base file) with the following modifications
+#12 has 4 layers with channels 48-24-12-2 and uses kernel size (2, 2, 2)
+#J uses Leaky ReLU in the generator and critic, learning rate decay, and batch normalization
 
 #The Generator
 def make_generator_model(num_class=2):

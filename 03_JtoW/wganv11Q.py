@@ -18,8 +18,9 @@ INIT = initializers.HeNormal(seed=42)
 
 LR = 1e-4
 
-#wgan v L is a gan using Wasserstein loss, logits, LeakyReLU, with gradient penalty
-#training data uses 2 labels [1,0] and [0,1]
+#WGAN architecture is based on the base architecture (please see description in the base file) with the following modifications
+#11 has 4 layers with channels 48-24-12-2
+#Q uses Leaky ReLU in the generator and critic, learning rate decay, batch normalization in the generator, and gradient penalty
 
 #The Generator
 def make_generator_model(num_class=2):
@@ -49,17 +50,14 @@ def make_discriminator_model(num_class=2):
     model.add(layers.Conv3D(12, (4, 4, 4), strides=(2, 2, 2), padding='same', kernel_initializer=INIT,
                                      input_shape=[160, 160, 80, num_class]))
     model.add(layers.LeakyReLU(alpha=0.2))
-    #model.add(layers.BatchNormalization())
     assert model.output_shape == (None, 80, 80, 40, 12)
 
     model.add(layers.Conv3D(24, (4, 4, 4), strides=(2, 2, 2), padding='same', kernel_initializer=INIT))
     model.add(layers.LeakyReLU(alpha=0.2))
-    #model.add(layers.BatchNormalization())
     assert model.output_shape == (None, 40, 40, 20, 24)
 
     model.add(layers.Conv3D(1, (4, 4, 4), strides=(2, 2, 2), padding='same', kernel_initializer=INIT))
     model.add(layers.LeakyReLU(alpha=0.2))
-    #model.add(layers.BatchNormalization())
     assert model.output_shape == (None, 20, 20, 10, 1)
 
     model.add(layers.Flatten())
