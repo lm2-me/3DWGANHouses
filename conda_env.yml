@@ -1,0 +1,30 @@
+name: 3DWGAN
+channels:
+- conda-forge
+- nvidia
+- defaults
+dependencies:
+- python=3.8
+- numpy=1.23.3
+- matplotlib=3.5.3
+- pip=20.*
+- imageio
+- keras
+- pandas
+- scikit-learn
+- cudatoolkit=11.2
+- cudnn=8.1.0
+- cuda-nvcc
+- jupyter
+
+- pip:
+  - tensorflow
+  - laspy
+  - open3d==0.16
+  - tqdm
+  - simple-3dviz 
+  - wxPython
+
+
+#if you run "conda env create --prefix ./env --file conda_env.yml"  it will create a new environment
+#if you run "conda env update --prefix ./env --file conda_env.yml  --prune "  it will update the environment 
